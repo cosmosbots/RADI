@@ -5,7 +5,7 @@ import { ResponseDetails } from '~/common/rpc/network';
 
 export const requestURL = (url: string): Promise<ResponseDetails> =>
   new Promise((resolve, reject) => {
-    const options = parse(url);
+    var options = parse(url);
 
     let { request } = http;
 

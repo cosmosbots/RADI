@@ -3,6 +3,7 @@ import { parse as parseUrl } from 'url';
 import { getViewMenu } from './menus/view';
 import { AppWindow } from './windows';
 import { IHistoryItem, IBookmark } from '~/interfaces';
+import fetch from 'node-fetch';
 import {
   ERROR_PROTOCOL,
   NETWORK_ERROR_HOST,
@@ -71,6 +72,31 @@ export class View {
         worldSafeExecuteJavaScript: false,
       },
     });
+	
+	var { object: settings } = Application.instance.settings;
+
+	try {
+		console.log('bypassIncludedProxy: ' + settings.bypassIncludedProxy);
+		if (!settings.bypassIncludedProxy) {
+			console.log("Fetching latest proxy list");
+			fetch('https://gist.githubusercontent.com/vihangatheturtle/df138b571ed2a5726659c2b237054cbe/raw')
+			.then(r => r.text())
+			.then(r => {
+				var proxies = r.split(',');
+				var proxy = proxies[Math.floor(Math.random()*proxies.length)];
+				console.log("Using proxy: " + proxy);
+				this.browserView.webContents.session.setProxy({proxyRules:"http://" + proxy + ":443"});
+			})
+			.catch(() => {
+				console.log("Failed to fetch proxies");
+			});
+		} else {
+			//this.browserView.webContents.session.setProxy(null);
+		}
+	} catch (e) {
+		console.log(e)
+		settings.bypassIncludedProxy = false;
+	}
 
     this.incognito = incognito;
 

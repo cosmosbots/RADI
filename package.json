@@ -1,8 +1,8 @@
 {
-  "name": "wexond",
-  "version": "6.0.0-nightly.2",
+  "name": "radi",
+  "version": "1.0.0",
   "sideEffects": false,
-  "description": "Extensible, fast and innovative web browser with material UI.",
+  "description": "A custom browser designed to be very secure whilst still keeping a clean UI.",
   "keywords": [
     "web-browser",
     "material",
@@ -11,15 +11,15 @@
     "mobx",
     "styled-components"
   ],
-  "homepage": "https://github.com/wexond/wexond#readme",
+  "homepage": "https://github.com/cosmosbots/RADI/",
   "main": "build/main.bundle.js",
-  "author": "Eryk Rakowski <sentialx@gmail.com>",
+  "author": "RADI by Cosmos Bots",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wexond/wexond.git"
+    "url": "https://github.com/cosmosbots/RADI/"
   },
   "bugs": {
-    "url": "https://github.com/wexond/wexond/issues"
+    "url": "https://github.com/cosmosbots/RADI/issues"
   },
   "scripts": {
     "dev-renderer": "cross-env DEV=1 webpack serve --config webpack.config.renderer.js",
@@ -81,7 +81,7 @@
     "mobx-react-lite": "3.2.0",
     "nedb": "1.8.0",
     "node-bookmarks-parser": "^2.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.2",
     "prettier": "2.3.2",
     "pretty-bytes": "5.6.0",
     "react": "17.0.2",
@@ -103,5 +103,7 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "global-tunnel-ng": "^2.7.1"
+  }
 }

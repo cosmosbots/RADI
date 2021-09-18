@@ -27,6 +27,21 @@ const DoNotTrackToggle = observer(() => {
   );
 });
 
+const BypassIncludedProxy = observer(() => {
+  const { bypassIncludedProxy } = store.settings;
+
+  return (
+    <Row onClick={onSwitchChange('bypassIncludedProxy')}>
+      <Title>
+        Bypass the included proxies (restart required)
+      </Title>
+      <Control>
+        <Switch value={bypassIncludedProxy} />
+      </Control>
+    </Row>
+  );
+});
+
 export const Privacy = () => {
   return (
     <>
@@ -39,6 +54,7 @@ export const Privacy = () => {
         Clear browsing data
       </Button>
       <DoNotTrackToggle />
+      <BypassIncludedProxy />
     </>
   );
 };

@@ -1,6 +1,6 @@
 {
-  "appId": "org.wexond.wexond",
-  "productName": "Wexond",
+  "appId": "org.radi.radi",
+  "productName": "RADI",
   "nsis": {
     "include": "static/installer.nsh"
   },
@@ -44,7 +44,7 @@
   "fileAssociations": [
     {
       "name": "Document",
-      "description": "Wexond",
+      "description": "RADI",
       "role": "Viewer",
       "ext": "html"
     }
